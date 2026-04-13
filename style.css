@@ -2,9 +2,22 @@ body {
   padding: 0;
   margin: 0;
   background-color: beige;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container {}
+.container {
+  position: relative;
+  background-color: brown;
+  width: 700px;
+  height: 800px;
+}
+
+.clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
