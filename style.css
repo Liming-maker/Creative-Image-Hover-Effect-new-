@@ -2,6 +2,11 @@ body {
   padding: 0;
   margin: 0;
   background-color: beige;
+  height: 100vh;
+  /* 这一句的作用是让body的高度等于整个屏幕的高度 
+  而如果没有高度的话，后果就是盒子的高度只能靠内容撑开
+  而如果盒子没有高度的话，垂直居中就失效了
+  */
 
   display: flex;
   justify-content: center;
@@ -10,14 +15,52 @@ body {
 
 .container {
   position: relative;
-  background-color: brown;
-  width: 700px;
-  height: 800px;
+  /* background-color: brown; */
+  width: 800px;
+  height: 500px;
 }
 
 .clip {
+  /* 前一个盒子已经定好盒子的大小了，不需要再搞盒子的尺寸了
+  只需要填满就可以了 */
   position: absolute;
   top: 0;
   left: 0;
 
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.5s;
+}
+
+.clip1 {
+  background: url(https://images.unsplash.com/photo-1604537466158-719b1972feb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 20% 0, 20% 100%, 0 100%);
+  /* clip-path的意思是剪辑路径，polygon的意思是多边形的意思 */
+}
+
+.clip2 {
+  background: url(https://images.unsplash.com/photo-1502228213426-d4e9f2add0e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(20% 0, 50% 0, 50% 100%, 20% 100%);
+
+}
+
+.clip3 {
+  background: url(https://images.unsplash.com/photo-1519757043093-285fcb07a4e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+
+.container:hover .clip {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.container .clip:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
