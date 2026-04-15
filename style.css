@@ -61,6 +61,10 @@ body {
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 }
 
-.container .clip:hover {
+.container .clip:hover {/* 这句代码里面，“.clip:hover”的意思是某个被鼠标悬停的clip类，并不是所有的含clip的标签 */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
+
+/* css同级选择器如何执行 */
+/* 后出现覆盖原则：同级选择器出现时，后出现的会覆盖先出现的，
+所以图片才不会都缩回去 */
